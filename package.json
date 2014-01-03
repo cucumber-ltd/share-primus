@@ -1,0 +1,33 @@
+{
+  "name": "share-primus",
+  "version": "0.0.1",
+  "description": "Primus bindings for ShareJS",
+  "main": "share-primus.js",
+  "scripts": {
+    "postinstall": "cd node_modules/share && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/share/share-primus.git"
+  },
+  "keywords": [
+    "primus",
+    "sharejs"
+  ],
+  "author": "Aslak Hellesøy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/share/share-primus/issues"
+  },
+  "homepage": "https://github.com/share/share-primus",
+  "devDependencies": {
+    "share": "~0.7.0-alpha9",
+    "connect": "~2.12.0",
+    "livedb": "~0.3.0",
+    "livedb-mongo": "~0.3.0",
+    "ws": "~0.4.31"
+  },
+  "dependencies": {
+    "primus": "~1.5.1"
+  }
+}

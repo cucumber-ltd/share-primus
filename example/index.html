@@ -1,0 +1,31 @@
+<html>
+<head>
+  <style>
+    #pad {
+      width: 100%;
+      height: 100%;
+      font-size: 20px;
+    }
+  </style>
+  <script src="/primus/primus.js"></script>
+  <script src="text.js"></script>
+  <script src="share.uncompressed.js"></script>
+  <script src="share-primus.js"></script>
+</head>
+
+<body>
+  <textarea id='pad' autofocus>Connecting...</textarea>
+  <script>
+  var primus = new Primus();
+  var sjs = new window.sharejs.Connection(primus);
+
+  var doc = sjs.get('test-collection', 'test-doc');
+  doc.subscribe();
+
+  doc.whenReady(function () {
+    doc.attachTextarea(document.getElementById('pad'));
+  });
+  </script>
+<body>
+</html>
+
