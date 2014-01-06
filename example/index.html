@@ -6,6 +6,10 @@
       height: 100%;
       font-size: 20px;
     }
+
+    .offline {
+      background: pink;
+    }
   </style>
   <script src="/primus/primus.js"></script>
   <script src="text.js"></script>
@@ -14,8 +18,9 @@
 </head>
 
 <body>
-  <textarea id='pad' autofocus>Connecting...</textarea>
+  <textarea id="pad" class="offline" disabled autofocus>Connecting...</textarea>
   <script>
+  var pad = document.getElementById('pad');
   var primus = new Primus();
 
   var sjs = new window.sharejs.Connection(primus);
@@ -24,7 +29,17 @@
 
   doc.whenReady(function () {
     if (!doc.type) doc.create('text');
-    doc.attachTextarea(document.getElementById('pad'));
+    doc.attachTextarea(pad);
+  });
+
+  // Show the user when we have a connection
+  primus.on('open', function() {
+    pad.classList.remove('offline');
+    pad.disabled = false;
+  });
+  primus.on('close', function() {
+    pad.classList.add('offline');
+    pad.disabled = true;
   });
   </script>
 <body>
