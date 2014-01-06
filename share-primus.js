@@ -4,8 +4,8 @@
   window.sharejs.Connection.prototype.bindToSocket = function(stream) {
     var connection = this;
 
-    this.state = 'connecting';
-    this.canSend = false;
+    this.state = 'connected';
+    this.canSend = true;
     
     this.socket = {
       send: function(msg) {
@@ -15,6 +15,7 @@
     };
 
     stream.on('open', function() {
+      console.log('OPEN');
       connection._setState('connected');
     });
 
