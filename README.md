@@ -20,15 +20,13 @@ Create a connection and subscribe to a document:
 ```javascript
 var primus = new Primus();
 
-primus.on('open', function() {
-  var sjs = new window.sharejs.Connection(primus);
-  var doc = sjs.get('test-collection', 'test-doc');
-  doc.subscribe();
+var sjs = new window.sharejs.Connection(primus);
+var doc = sjs.get('test-collection', 'test-doc');
+doc.subscribe();
 
-  doc.whenReady(function () {
-    if (!doc.type) doc.create('text');
-    doc.attachTextarea(document.getElementById('pad'));
-  });
+doc.whenReady(function () {
+  if (!doc.type) doc.create('text');
+  doc.attachTextarea(document.getElementById('pad'));
 });
 ```
 
