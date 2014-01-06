@@ -14,7 +14,9 @@
   window.sharejs.Connection.prototype.bindToSocket = function(stream) {
     var connection = this;
 
-    this.state = READY_MAP[stream.readyState];
+    var parentStream = stream.stream || stream; // Handle both SubStream and regular Primus Stream.
+
+    this.state = READY_MAP[parentStream.readyState];
     this.canSend = this.state === 'connected'; // Primus can't send in connecting state
     
     this.socket = {

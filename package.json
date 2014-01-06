@@ -27,7 +27,8 @@
     "livedb-mongo": "~0.3.0",
     "ws": "~0.4.31",
     "optimist": "~0.6.0",
-    "browserchannel": "~1.0.8"
+    "browserchannel": "~1.0.8",
+    "substream": "0.0.2"
   },
   "dependencies": {
     "primus": "~1.5.1"
