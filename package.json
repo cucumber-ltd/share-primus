@@ -4,7 +4,7 @@
   "description": "Primus bindings for ShareJS",
   "main": "share-primus.js",
   "scripts": {
-    "postinstall": "cd node_modules/share && npm install"
+    "postinstall": "cd node_modules/share && curl -s https://github.com/share/ShareJS/pull/276.patch | patch -p1 && npm install"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/share/share-primus",
   "devDependencies": {
-    "share": "~0.7.0-alpha9",
+    "share": "git://github.com/share/ShareJS.git#master",
     "connect": "~2.12.0",
     "livedb": "~0.3.0",
     "livedb-mongo": "~0.3.0",

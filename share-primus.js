@@ -1,4 +1,4 @@
-(function () {
+(function (window) {
   'use strict';
 
   window.sharejs.Connection.prototype.bindToSocket = function(stream) {
@@ -9,6 +9,7 @@
     
     this.socket = {
       send: function(msg) {
+        console.log('c->s', JSON.stringify(msg));
         stream.write(msg);
       }
     };
@@ -22,6 +23,7 @@
     });
 
     stream.on('data', function(msg) {
+      console.log('s->c', JSON.stringify(msg));
       try {
         connection.handleMessage(msg);
       } catch (e) {
@@ -30,5 +32,5 @@
       }
     });
   };
-})();
+})(window);
 

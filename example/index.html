@@ -18,7 +18,6 @@
   <script>
   var primus = new Primus();
   var sjs = new window.sharejs.Connection(primus);
-
   var doc = sjs.get('test-collection', 'test-doc');
   doc.subscribe();
 
