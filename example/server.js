@@ -15,13 +15,14 @@ var app = connect(
 );
 var server = http.createServer(app);
 var primus = new Primus(server, { transformer: argv.transformer });
-primus.use('substream', require('substream'));
+//primus.use('substream', require('substream'));
 
 var backend = livedb.client(livedbMongo('localhost:27017/test?auto_reconnect', {safe:false}));
 var shareClient = share.server.createClient({backend:backend});
 primus.on('connection', function (spark) {
-  var shareSpark = spark.substream('share');
-  shareClient.listen(sharePrimus.sparkStream(shareSpark));
+//  var shareSpark = spark.substream('share');
+//  shareClient.listen(sharePrimus.sparkStream(shareSpark));
+  shareClient.listen(sharePrimus.sparkStream(spark));
 });
 
 
