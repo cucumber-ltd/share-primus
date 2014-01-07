@@ -22,6 +22,7 @@ var shareClient = share.server.createClient({backend:backend});
 primus.on('connection', function (spark) {
 //  var shareSpark = spark.substream('share');
 //  shareClient.listen(sharePrimus.sparkStream(shareSpark));
+  // Workaround for https://github.com/primus/primus/issues/121
   shareClient.listen(sharePrimus.sparkStream(spark));
 });
 
