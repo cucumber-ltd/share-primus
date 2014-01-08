@@ -46,9 +46,18 @@ primus.on('connection', function (spark) {
 
 ### Run Example
 
+First, build the ShareJS web client:
+
 ```
-node example/server.js --transformer=[websockets|browserchannel]
+npm run-script build-sharejs
 ```
 
-The example code is a little more sophisticated. It also sets up a substream for sending non-sharejs
-messages over the same connection.
+IMPORTANT! When you start the server the first time, Primus will tell you to `npm install`
+the underlying streaming framework first. Pay close attention to the error message.
+
+```
+node example/server.js --transformer=[websockets|browserchannel|sockjs|engine.io|socket.io]
+```
+
+The example code is a little more sophisticated than the code above. 
+It also sets up a substream for sending non-sharejs messages over the same connection.
