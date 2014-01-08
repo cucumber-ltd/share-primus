@@ -15,15 +15,27 @@ var app = connect(
 );
 var server = http.createServer(app);
 var primus = new Primus(server, { transformer: argv.transformer });
-//primus.use('substream', require('substream'));
+primus.use('substream', require('substream'));
 
 var backend = livedb.client(livedbMongo('localhost:27017/test?auto_reconnect', {safe:false}));
 var shareClient = share.server.createClient({backend:backend});
 primus.on('connection', function (spark) {
-//  var shareSpark = spark.substream('share');
-//  shareClient.listen(sharePrimus.sparkStream(shareSpark));
+  var shareSpark = spark.substream('share');
   // Workaround for https://github.com/primus/primus/issues/121
-  shareClient.listen(sharePrimus.sparkStream(spark));
+  shareClient.listen(sharePrimus.sparkStream(shareSpark));
+
+  // Send some non-share messages over the same stream
+  // Inspired by https://github.com/einaros/ws/blob/master/examples/serverstats/server.js
+  console.log('New client');
+  var processSpark = spark.substream('process');
+  var id = setInterval(function() {
+    processSpark.write(JSON.stringify(process.memoryUsage()));
+  }, 100);
+
+  spark.on('end', function() {
+  	console.log('Lost client');
+  	clearInterval(id);
+  });
 });
 
 

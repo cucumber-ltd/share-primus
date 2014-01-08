@@ -2,17 +2,20 @@
 
 [Primus](https://github.com/primus/primus) bindings for [ShareJS](https://github.com/share/ShareJS).
 
-This lets you use ShareJS with WebSockets, BrowserChannel, SockJS and any protocol supported by Primus.
+This lets you use ShareJS with WebSockets, BrowserChannel, SockJS or any other streaming library supported by Primus.
+
+Primus also has several useful plugins such as [Substream](https://github.com/primus/substream), which
+makes it possible to use the same connection as a transport for several logical streams.
 
 ### Browser
 
 Import the scripts:
 
 ```html
+<script src="/primus/primus.js"></script>
 <script src="text.js"></script>
 <script src="share.uncompressed.js"></script>
 <script src="share-primus.js"></script>
-<script src="/primus/primus.js"></script>
 ```
 
 Create a connection and subscribe to a document:
@@ -41,11 +44,11 @@ primus.on('connection', function (spark) {
 });
 ```
 
-See the example for full details.
-
 ### Run Example
 
 ```
 node example/server.js --transformer=[websockets|browserchannel]
 ```
 
+The example code is a little more sophisticated. It also sets up a substream for sending non-sharejs
+messages over the same connection.
