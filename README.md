@@ -2,7 +2,8 @@
 
 [Primus](https://github.com/primus/primus) bindings for [ShareJS](https://github.com/share/ShareJS).
 
-This lets you use ShareJS with WebSockets, BrowserChannel, SockJS or any other streaming library supported by Primus.
+Share-Primus is a client (browser side) extension to ShareJS that lets you use ShareJS with WebSockets, 
+BrowserChannel, SockJS or any other streaming library supported by Primus.
 
 Primus also has several useful plugins such as [Substream](https://github.com/primus/substream), which
 makes it possible to use the same connection as a transport for several logical streams.

@@ -2,7 +2,7 @@
   "name": "share-primus",
   "version": "0.0.1",
   "description": "Primus bindings for ShareJS",
-  "main": "share-primus.js",
+  "main": "lib/index.js",
   "scripts": {
     "build-sharejs": "cd node_modules/share && curl -s https://github.com/share/ShareJS/pull/276.patch | patch -p1 && npm install"
   },
@@ -20,15 +20,15 @@
     "url": "https://github.com/share/share-primus/issues"
   },
   "homepage": "https://github.com/share/share-primus",
+  "dependencies": {
+    "share": "git://github.com/share/ShareJS.git#a620b24a1206659d7501bf110cc9551332a253f2",
+    "primus": "git://github.com/primus/primus.git#21f66c855f6fecbf0d487cc20a371cfaa6c93cee"
+  },
   "devDependencies": {
-    "share": "git://github.com/share/ShareJS.git#master",
     "connect": "~2.12.0",
     "livedb": "~0.3.0",
     "livedb-mongo": "~0.3.0",
     "optimist": "~0.6.0",
-    "substream": "git://github.com/primus/substream.git#master"
-  },
-  "dependencies": {
-    "primus": "git://github.com/primus/primus.git#master"
+    "substream": "git://github.com/primus/substream.git#31ceda3954f79546de66c2e26c80f30a5c33ee48"
   }
 }
