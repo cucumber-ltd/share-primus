@@ -22,7 +22,7 @@
   "homepage": "https://github.com/share/share-primus",
   "dependencies": {
     "share": "git://github.com/share/ShareJS.git#a620b24a1206659d7501bf110cc9551332a253f2",
-    "primus": "git://github.com/primus/primus.git#21f66c855f6fecbf0d487cc20a371cfaa6c93cee"
+    "primus": "git://github.com/primus/primus.git#aa0debc738a066c532bacc04f8652680f3f17110"
   },
   "devDependencies": {
     "connect": "~2.12.0",
