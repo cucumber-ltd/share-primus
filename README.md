@@ -53,12 +53,18 @@ First, build the ShareJS web client:
 npm run-script build-sharejs
 ```
 
-IMPORTANT! When you start the server the first time, Primus will tell you to `npm install`
-the underlying streaming framework first. Pay close attention to the error message.
+```
+node example/server.js --transformer=websockets
+```
+
+You can also start the server with other streaming frameworks:
 
 ```
 node example/server.js --transformer=[websockets|browserchannel|sockjs|engine.io|socket.io]
 ```
+
+IMPORTANT! When you start the server the first time, Primus will tell you to `npm install`
+the underlying streaming framework first. Pay close attention to the error message.
 
 The example code is a little more sophisticated than the code above. 
 It also sets up a substream for sending non-sharejs messages over the same connection.

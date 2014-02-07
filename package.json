@@ -4,7 +4,7 @@
   "description": "Primus bindings for ShareJS",
   "main": "lib/index.js",
   "scripts": {
-    "build-sharejs": "cd node_modules/share && curl -s https://github.com/share/ShareJS/pull/276.patch | patch -p1 && npm install"
+    "build-sharejs": "cd node_modules/share && curl -s https://github.com/share/ShareJS/pull/276.patch | patch -p1 && make webclient UGLIFY=\"../../node_modules/.bin/uglifyjs -d WEB=true\""
   },
   "repository": {
     "type": "git",
@@ -21,14 +21,16 @@
   },
   "homepage": "https://github.com/share/share-primus",
   "dependencies": {
-    "share": "git://github.com/share/ShareJS.git#d38587dacf42214aa4b982285e471ae27209df9c",
     "primus": "2.0.0"
   },
   "devDependencies": {
+    "share": "git://github.com/share/ShareJS.git#d38587dacf42214aa4b982285e471ae27209df9c",
+    "uglify-js": "~2.4.11",
     "connect": "~2.12.0",
     "livedb": "~0.3.0",
     "livedb-mongo": "~0.3.0",
-    "optimist": "~0.6.0",
-    "substream": "git://github.com/primus/substream.git#31ceda3954f79546de66c2e26c80f30a5c33ee48"
+    "optimist": "~0.6.1",
+    "substream": "git://github.com/primus/substream.git#31ceda3954f79546de66c2e26c80f30a5c33ee48",
+    "ws": "~0.4.31"
   }
 }

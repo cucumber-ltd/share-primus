@@ -8,7 +8,6 @@ var sharePrimus = require('../lib');
 var Primus = require('primus');
 var argv = require('optimist').argv;
 
-console.log(share.scriptsDir)
 var app = connect(
   connect.static(__dirname),
   connect.static(share.scriptsDir),
