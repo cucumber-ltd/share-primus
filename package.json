@@ -4,7 +4,8 @@
   "description": "Primus bindings for ShareJS",
   "main": "lib/index.js",
   "scripts": {
-    "build-sharejs": "cd node_modules/share && make webclient UGLIFY=\"../../node_modules/.bin/uglifyjs -d WEB=true\""
+    "build-sharejs": "cd node_modules/share && make webclient UGLIFY=\"../../node_modules/.bin/uglifyjs -d WEB=true\"",
+    "test": "node_modules/.bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,11 @@
     "livedb-mongo": "~0.3.0",
     "optimist": "~0.6.1",
     "substream": "git://github.com/primus/substream.git#31ceda3954f79546de66c2e26c80f30a5c33ee48",
-    "ws": "~0.4.31"
+    "ws": "^0.4.31",
+    "chai": "^1.9.1",
+    "mocha": "^1.18.2",
+    "sinon": "^1.9.0",
+    "primus": "^2.0.2",
+    "sinon-chai": "^2.5.0"
   }
 }
