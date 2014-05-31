@@ -25,7 +25,7 @@ primus.on('connection', function (spark) {
   console.log('New client');
   var shareSpark = spark.substream('share');
   // Workaround for https://github.com/primus/primus/issues/121
-  shareClient.listen(sharePrimus.sparkStream(shareSpark));
+  shareClient.listen(new sharePrimus.SparkStream(shareSpark));
 
   // Send some non-share messages over the same stream
   // Inspired by https://github.com/einaros/ws/blob/master/examples/serverstats/server.js
@@ -43,4 +43,3 @@ primus.on('connection', function (spark) {
 var port = argv.port || 7008;
 server.listen(port);
 console.log(format("Listening on http://localhost:%d/", port));
-

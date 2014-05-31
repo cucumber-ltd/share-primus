@@ -22,21 +22,20 @@
   },
   "homepage": "https://github.com/share/share-primus",
   "dependencies": {
-    "primus": "2.0.2"
+    "primus": "2.2.4"
   },
   "devDependencies": {
     "share": "v0.7.0-alpha13",
     "uglify-js": "~2.4.12",
-    "connect": "~2.13.0",
-    "livedb": "~0.3.0",
+    "connect": "~2.18.0",
+    "livedb": "~0.4.1",
     "livedb-mongo": "~0.3.0",
     "optimist": "~0.6.1",
-    "substream": "git://github.com/primus/substream.git#31ceda3954f79546de66c2e26c80f30a5c33ee48",
+    "substream": "0.0.3",
     "ws": "^0.4.31",
     "chai": "^1.9.1",
     "mocha": "^1.18.2",
     "sinon": "^1.9.0",
-    "primus": "^2.0.2",
     "sinon-chai": "^2.5.0"
   }
 }
