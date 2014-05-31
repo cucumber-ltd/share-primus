@@ -1,6 +1,6 @@
 {
   "name": "share-primus",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Primus bindings for ShareJS",
   "main": "lib/index.js",
   "scripts": {
