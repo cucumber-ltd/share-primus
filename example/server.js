@@ -1,24 +1,23 @@
 var format = require('util').format;
 var http = require('http');
-var connect = require('connect');
+var express = require('express');
 var livedb = require('livedb');
-var livedbMongo = require('livedb-mongo');
 var share = require('share');
 var sharePrimus = require('../lib');
 var Primus = require('primus');
 var argv = require('optimist').argv;
 
-var app = connect(
-  connect.static(__dirname),
-  connect.static(share.scriptsDir),
-  connect.static(sharePrimus.scriptsDir)
-);
+var app = express();
+app.use(express.static(__dirname));
+app.use(express.static(share.scriptsDir));
+app.use(express.static(sharePrimus.scriptsDir));
 var server = http.createServer(app);
 
 var primus = new Primus(server, { transformer: argv.transformer });
 primus.use('substream', require('substream'));
 
-var backend = livedb.client(livedbMongo('localhost:27017/test?auto_reconnect', {safe:false}));
+var db = new livedb.memory();
+var backend = livedb.client(db);
 var shareClient = share.server.createClient({backend:backend});
 
 primus.on('connection', function (spark) {
