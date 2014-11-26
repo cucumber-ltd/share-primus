@@ -1,3 +1,8 @@
+## [0.1.3](https://github.com/aslakhellesoy/share-primus/compare/v0.1.2...v0.1.3) (2014-11-26)
+
+* Update dependencies
+* Use in-memory livedb for example
+
 ## [0.1.2](https://github.com/aslakhellesoy/share-primus/compare/v0.1.1...v0.1.2) (2014-06-16)
 
 * Work around ShareJS' strict state machine. Primus sometimes goes from

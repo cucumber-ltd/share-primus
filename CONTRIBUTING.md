@@ -16,7 +16,6 @@ We won't fix bugs for you unless you send a pull request.
 * Commit and push everything. Then:
 
 ```
-npm version NEW_VERSION
+npm version [major|minor|patch]
 npm publish
-git push && git push --tags
 ```

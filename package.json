@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "build-sharejs": "cd node_modules/share && make webclient UGLIFY=\"../../node_modules/.bin/uglifyjs -d WEB=true\"",
-    "test": "node_modules/.bin/mocha"
+    "test": "node_modules/.bin/mocha",
+    "postpublish": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
